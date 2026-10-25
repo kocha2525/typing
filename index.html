@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SERVER DEFENSE // TYPING RAID</title>
+  <link rel="stylesheet" href="style.css?v=20261026-boss-audio-r2">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div id="start-intro" class="start-intro hidden" aria-hidden="true" aria-modal="true" role="dialog" aria-labelledby="start-intro-title" aria-describedby="start-intro-copy">
+    <div class="start-intro-content">
+      <div class="start-intro-alert"><i></i> DEFENSE PROTOCOL // STANDBY</div>
+      <div class="start-intro-code">FIREWALL SYSTEM <span>READY TO DEPLOY</span></div>
+      <div class="start-intro-divider"><i></i><b>INITIALIZE DEFENSE</b><i></i></div>
+      <h2 id="start-intro-title">防御プログラム、起動。</h2>
+      <p id="start-intro-copy">防衛システムを展開します。<br>侵入プログラムの迎撃準備をしてください。</p>
+      <button id="start-intro-go" class="start-intro-button">防衛プログラム起動 <span>DEPLOY FIREWALL →</span></button>
+    </div>
+  </div>
+  <div id="boss-intro" class="boss-intro hidden" aria-hidden="true" aria-modal="true" role="dialog" aria-labelledby="boss-intro-title" aria-describedby="boss-intro-copy">
+    <div class="boss-intro-sweep" aria-hidden="true"></div>
+    <div class="boss-intro-content">
+      <div class="boss-intro-alert"><i></i> SECURITY BREACH // LEVEL CRITICAL</div>
+      <div class="boss-intro-code">BOTNET CORE DETECTED <span>THREAT 0xFF</span></div>
+      <div class="boss-intro-divider"><i></i><b>FINAL WARNING</b><i></i></div>
+      <h2 id="boss-intro-title">ボットネット中枢</h2>
+      <p id="boss-intro-copy">最終防衛ラインに侵入を検知。<br>全コマンドを入力し、中枢を停止せよ。</p>
+      <button id="boss-intro-start" class="boss-intro-button">防衛を開始 <span>ENGAGE →</span></button>
+      <div class="boss-intro-countdown">準備ができたらボタンを押して開始</div>
+    </div>
+  </div>
+  <div id="clear-intro" class="clear-intro hidden" aria-hidden="true" aria-modal="true" role="dialog" aria-labelledby="clear-intro-title" aria-describedby="clear-intro-copy">
+    <div class="clear-intro-sweep" aria-hidden="true"></div>
+    <div class="clear-intro-content">
+      <div class="clear-intro-alert"><i></i> THREAT ELIMINATED // SYSTEM SECURE</div>
+      <div class="clear-intro-code">INCIDENT RESPONSE <span>COMPLETE</span></div>
+      <div class="clear-intro-divider"><i></i><b id="clear-intro-kicker">NODE CLEARED</b><i></i></div>
+      <h2 id="clear-intro-title">制圧成功</h2>
+      <p id="clear-intro-copy">このノードの敵をすべて排除しました。</p>
+      <button id="clear-intro-next" class="clear-intro-button">次へ進む <span>CONTINUE →</span></button>
+      <div class="clear-intro-countdown">ボタンを押すと次へ進みます</div>
+    </div>
+  </div>
+  <main class="shell">
+    <header class="topline">
+      <div class="brand"><span class="brand-mark">▣</span><div><strong>SERVER DEFENSE</strong><small>INCIDENT RESPONSE SYSTEM</small></div></div>
+      <div class="topline-actions"><div class="audio-controls"><div class="audio-buttons"><button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true">♪ AUDIO ON</button><button id="audio-settings-toggle" class="sound-toggle settings-toggle" type="button" aria-expanded="false" aria-controls="audio-panel">音量</button></div><div id="audio-panel" class="audio-panel hidden" aria-label="音量設定"><label for="music-volume">BGM <output id="music-volume-value">120%</output></label><input id="music-volume" type="range" min="0" max="150" value="120"><label for="sfx-volume">効果音 <output id="sfx-volume-value">85%</output></label><input id="sfx-volume" type="range" min="0" max="100" value="85"></div></div><div class="connection"><i></i> SECURE CHANNEL <span>● ONLINE</span></div></div>
+    </header>
+
+    <section id="screen-start" class="screen start-screen">
+      <div class="eyebrow">// INTRUSION ALERT: ACTIVE</div>
+      <h1>サーバーを、<em>守りきれ。</em></h1>
+      <p class="lead">迫る侵入プログラムをタイピングで迎撃。ルートを選び、装備を整え、ボットネット中枢を停止せよ。</p>
+      <div class="start-panel">
+        <h2>初期スキルを選択 <span>SELECT STARTER MODULE</span></h2>
+        <div id="starter-options" class="starter-grid"></div>
+        <button id="start-run" class="primary-button" disabled>防衛を開始 <span>INITIALIZE RAID →</span></button>
+      </div>
+      <div class="start-footer"><span>敵は出現順に自動ロックオン</span><span>単語をローマ字入力して攻撃</span><span>スキル: ボタン / 1–4</span></div>
+    </section>
+
+    <section id="screen-battle" class="screen hidden">
+      <div class="battle-heading"><div><div class="eyebrow" id="battle-kicker">// INCIDENT 01</div><h1 id="battle-title">侵入ノードを排除せよ</h1></div><div class="room-progress" id="room-progress"></div></div>
+      <aside class="stage-guide" aria-label="ステージ説明">
+        <div><b id="stage-guide-title">ノード 01 // 基礎侵入</b><span id="stage-guide-objective">侵入ボットを出現順に撃破。</span></div>
+        <p><strong>注意</strong><span id="stage-guide-danger">敵ごとの攻撃条件を確認。</span></p>
+      </aside>
+      <div class="hud-grid">
+        <aside class="panel player-panel">
+          <div class="panel-label">DEFENDER STATUS <span>01</span></div>
+          <div class="level-row"><b>LV <span id="player-level">1</span></b><span id="xp-label">0 / 60 EXP</span></div>
+          <div class="xp-track"><i id="xp-fill"></i></div>
+          <div class="stat-line"><span>HP</span><b id="hp-label">10 / 10</b></div><div class="bar hp-bar"><i id="hp-fill"></i></div>
+          <div class="stat-line"><span>SHIELD</span><b id="shield-label">0 / 5</b></div><div class="bar shield-bar"><i id="shield-fill"></i></div>
+          <div class="stat-line"><span>攻撃力</span><b id="attack-label">1</b></div>
+          <div class="miss-box"><span>現在の敵</span><b>攻撃まで <strong id="miss-left">3</strong> ミス</b></div>
+          <div class="panel-label skill-head">COMMAND MODULES <span id="skill-count">2 USES</span></div>
+          <div id="skill-buttons" class="skill-list"></div>
+        </aside>
+
+        <section class="battlefield panel">
+          <div class="field-top"><span id="field-state">FIREWALL ZONE // HOSTILE UNITS</span><span id="enemy-count">ENEMIES 00</span></div>
+          <div id="enemy-arena" class="enemy-arena" tabindex="-1"></div>
+          <div id="boss-panel" class="boss-panel hidden">
+            <div class="boss-title"><span>BOTNET CORE</span><b id="boss-phase">PHASE 01</b></div>
+            <div class="bar boss-bar"><i id="boss-fill"></i></div>
+            <div class="boss-meta"><span id="boss-hp-label">60 / 60 CORE HP</span><span id="boss-warning">反撃まで 3 ミス</span></div>
+          </div>
+          <div id="notice" class="notice">侵入プログラムを出現順に迎撃せよ</div>
+          <div class="typing-console">
+            <div class="target-caption"><span>THREAT QUEUE // INPUT CODE TO FIRE</span><span id="target-hp">—</span></div>
+            <div id="target-name" class="target-name">迎撃準備中</div>
+            <div id="target-reading" class="target-reading"></div>
+            <div class="typing-progress"><span id="typed-prefix"></span><span id="typed-rest"></span><i class="caret"></i></div>
+            <div class="typing-hint">表示中の単語を入力して出現順に迎撃（例: SHI / SI どちらもOK） // 次の対象を右に予告</div>
+          </div>
+        </section>
+
+        <aside class="panel intel-panel">
+          <div class="panel-label">THREAT INTEL <span>02</span></div>
+          <div class="stat-line"><span>撃破まで</span><b id="words-left">— 語</b></div>
+          <div class="stat-line"><span>連続入力</span><b id="combo-label">0</b></div>
+          <div class="combo-meter"><i id="combo-fill"></i></div>
+          <div class="stat-line"><span>次の攻撃ボーナス</span><b id="bonus-label">0 / 3</b></div>
+          <div class="intel-separator"></div>
+          <div class="intel-note"><b>THREAT PRIORITY</b><p>ジャマーの生存中は、他の敵のミス許容数が減少する。</p></div>
+          <div class="intel-note"><b>INPUT FEED</b><p id="speed-live">速度 0 キー/分</p><p id="accuracy-live">正確率 100%</p></div>
+          <button id="quit-run" class="quiet-button">防衛を中断</button>
+        </aside>
+      </div>
+    </section>
+
+    <section id="screen-choice" class="screen hidden choice-screen">
+      <div class="eyebrow">// ROUTE SELECTION</div><h1 id="choice-title">次の行き先を選択</h1>
+      <p id="choice-subtitle" class="lead">補給するか、強化するか、危険なルートに挑む。</p>
+      <div id="choice-grid" class="choice-grid"></div>
+    </section>
+
+    <section id="screen-pick" class="screen hidden choice-screen">
+      <div class="eyebrow">// SYSTEM UPGRADE</div><h1 id="pick-title">強化を選択</h1>
+      <p id="pick-subtitle" class="lead">防衛システムをアップデートする。</p>
+      <div id="pick-grid" class="choice-grid"></div>
+    </section>
+
+    <section id="screen-result" class="screen hidden result-screen">
+      <div id="result-tag" class="eyebrow">// INCIDENT CLOSED</div><h1 id="result-title">防衛成功</h1>
+      <p id="result-copy" class="lead"></p>
+      <div id="result-stats" class="result-grid"></div>
+      <button id="restart-run" class="primary-button">もう一度挑戦 <span>REBOOT RUN →</span></button>
+    </section>
+
+    <footer class="footerline"><span>DEFENSE GRID v0.1</span><span>LOCAL SIMULATION // NO NETWORK CONNECTION</span><span id="footer-clock">00:00</span></footer>
+  </main>
+  <script src="game-bossmix.js?v=20261026-boss-intro-r3"></script>
+</body>
+</html>
+
+
+
+
+
+
+
